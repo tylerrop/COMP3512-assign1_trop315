@@ -33,31 +33,36 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <!--ASP CHANGE-->
+                <!--menu button for moile screen sizes-->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 <!--End of navbar-toggle-->
                 </button>
-                <!--ASP CHANGE-->
-                <a class="navbar-brand" href="Default.aspx">Assign 1</a>
+                
+                <!--Assign 1 home link-->
+                <asp:HyperLink ID="Assign1Link" runat="server" CssClass="navbar-brand" NavigateUrl="~/Default.aspx" Text="Assign 1" /> 
+             
             <!--End of navbar-header-->
             </div>
 
             <!--Top nav menu-->
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li class="active"><asp:HyperLink ID="HomeLink" runat="server" NavigateUrl="~/Default.aspx" Text="Home" /></li>
+                    <li><asp:HyperLink ID="AboutLink" runat="server" NavigateUrl="~/AboutUs.aspx" Text="About Us" /></li>
+                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
                         <!--ASP CHANGE-->
+
+
                         <ul class="dropdown-menu">
-                            <li><a href="#">Artists Data List (Part 1)</a></li>
-                            <li><a href="#">Single Artists    (Part 2)</a></li>
-                            <li><a href="#">Single Work    (Part 3)</a></li>
-                            <li><a href="#">Search            (Part 4)</a></li>
+                            <li><asp:HyperLink ID="ArtistsDataLink" runat="server" NavigateUrl="~/Part01_ArtistsDataList.aspx" Text="Artists Data List (Part 1)" /></li>
+                            <li><asp:HyperLink ID="SingleArtistLink" runat="server" NavigateUrl="~/Part02_SingleArtist.aspx" Text="Single Artists (Part 2)" /></li>
+                            <li><asp:HyperLink ID="SingleWorkLink" runat="server" NavigateUrl="~/Part03_SingleWork.aspx" Text="Single Work (Part 3)" /></li>
+                            <li><asp:HyperLink ID="SearchLink" runat="server" NavigateUrl="~/Part04_Search.aspx" Text="Search (Part 4)" /></li>
                             <!--Dont need this code for now
                         <!--End of dropdown-menu-->
                         </ul>
@@ -71,15 +76,14 @@
                     <!--Search box-->
                     <p id="nameBlock">Tyler Rop</p>
                     <div class="form-group">
-                        <!--ASP CHANGE-->
-                        <input type="text" placeholder="Search" class="form-control" />
+                        <asp:TextBox Text="Search Paintings" ID="RightSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
                     <!--End of form-group-->
                     </div>
                     
                     <!--ASP CHANGE-->
                     <!--Search button-->
-                    <button type="submit" class="btn btn-primary">Search</button>
-              <!--End of search form-->
+                    <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" />
+                    <!--End of search form-->
               </div>
 
 
@@ -88,6 +92,34 @@
         <!--End of container-->    
         </div>
     <!--End of navbar navbar-inverse navbar-fixed-top-->
+    </div>
+
+
+
+    <!-- Main jumbotron message container-->
+    <div class="jumbotron">
+        <!--Hond the home page general text-->
+        <div class="container">
+        <h1>Welcome to Assignment #1</h1>
+        <p>This is the first assignment for Tyler Rop for COMP 3512</p>
+        <!--End of container-->
+        </div>
+    <!--end of jumbotron-->
+    </div>
+
+    <div class="container">
+        <div class="col-lg-10">
+            <!--About Us-->
+            <div class="col-sm-2">
+                <h4>About Us</h4>
+                <p>What this is all about and other stuff</p>
+            <!--End of col-sm-1-->
+            </div>
+
+        <!--End of col-lg-10-->
+        </div>
+
+    <!--End of container-->
     </div>
 
 
