@@ -109,12 +109,65 @@
 
     <div class="container">
         <div class="col-lg-10">
+
             <!--About Us-->
             <div class="col-sm-2">
-                <h4>About Us</h4>
+                <!--emoticon-->
+                <h4><span class="glyphicon glyphicon-info-sign"></span> About Us</h4>
                 <p>What this is all about and other stuff</p>
+               <asp:HyperLink ID="VistLink1" runat="server" CssClass="btn btn-default" NavigateUrl="~/AboutUs.aspx">
+                    <span class="glyphicon glyphicon-link"></span> Visit Page
+                </asp:HyperLink>
+            </div>
+
+
+            <!--Artist List-->
+            <div class="col-sm-2">
+                <!--emoticon-->
+                <h4><span class="glyphicon glyphicon-list"></span> Artist List</h4>
+                <p>Displays a list of artist names as links</p>
+                <asp:HyperLink ID="VisitLink2" runat="server" CssClass="btn btn-default" NavigateUrl="~/Part01_ArtistsDataList.aspx">
+                    <span class="glyphicon glyphicon-link"></span> Visit Page
+                </asp:HyperLink>
             <!--End of col-sm-1-->
             </div>
+
+
+            <!--Single Artist-->
+            <div class="col-sm-2">
+                <!--emoticon-->
+                <h4><span class="glyphicon glyphicon-user"></span> Single Artist</h4>
+                <p>Displays information for one artist</p>
+                <asp:HyperLink ID="VisitLink3" runat="server" CssClass="btn btn-default" NavigateUrl="~/Part02_SingleArtist.aspx">
+                    <span class="glyphicon glyphicon-link"></span> Visit Page
+                </asp:HyperLink>
+            <!--End of col-sm-1-->
+            </div>
+
+
+            <!--Single Work-->
+            <div class="col-sm-2">
+                <!--emoticon-->
+                <h4><span class="glyphicon glyphicon-picture"></span> Single Work</h4>
+                <p>Displays information for one single work</p>
+                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-default" NavigateUrl="~/Part03_SingleWork.aspx">
+                    <span class="glyphicon glyphicon-link"></span> Visit Page
+                </asp:HyperLink>
+            <!--End of col-sm-1-->
+            </div>
+
+
+            <!--Search-->
+            <div class="col-sm-2">
+                <!--emoticon-->
+                <h4><span class="glyphicon glyphicon-search"></span> Search</h4>
+                <p>Perform a search on the ArtWorks tables</p>
+                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-default" NavigateUrl="~/Part04_Search.aspx">
+                    <span class="glyphicon glyphicon-link"></span> Visit Page
+                </asp:HyperLink>
+            <!--End of col-sm-1-->
+            </div>
+
 
         <!--End of col-lg-10-->
         </div>
