@@ -120,6 +120,10 @@
                         <div class"col-xs-12 col-sm-6 col-md-8 col-lg-8">
                             <!--artist description-->
                             <p><%# Eval("Details")%></p>
+
+                            <asp:HyperLink ID="FavoritesLink" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
+                                <span class="glyphicon glyphicon-heart blueLinks"></span> Add to Favorites
+                            </asp:HyperLink>
                         </div>
 
                   <!--row-->

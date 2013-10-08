@@ -19,3 +19,12 @@
 .noLeftPadding {
     padding-left:0;
 }
+
+.blueLinks {
+    color: #428bca;
+    font-weight:bold;
+}
+
+.blueLinks:hover {
+    color: #223456;
+}
