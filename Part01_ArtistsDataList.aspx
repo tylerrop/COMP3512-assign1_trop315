@@ -99,21 +99,30 @@
     <div class="topSpacing"></div>
 
     <div class="container">
-        <div>
+        <div class="col-lg-10">
             <h1>Artist Data List (Part 1)</h1>
-        <!--End of generic div-->
+              
+            <!--Lists out all of the artists in the database-->    
+            <asp:DataList runat="server" ID="ArtistList" DataSourceID="sqlArtists">
+                <ItemTemplate>
+                <a href="Part02_SingleArtist.aspx?ArtistID=<%# Eval("ArtistId")%>"><%# Eval("FirstName")%> <%# Eval("LastName")%> (<%# Eval("YearOfBirth")%> - <%# Eval("YearOfDeath")%>)</a>
+                </ItemTemplate>
+            </asp:DataList>
+
+        <!--End of col-lg-10-->
         </div>
 
-        <asp:DataList runat="server" DataSourceID="">
-            
-
-        </asp:DataList>
     <!--End of container-->
     </div>
 
 
 
-
+    <asp:SqlDataSource ID="sqlArtists" 
+                       runat="server" 
+                       ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                       SelectCommand="SELECT * FROM [Artists] ORDER BY LastName"
+                       ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+    </asp:SqlDataSource>
 
 
     </form>
