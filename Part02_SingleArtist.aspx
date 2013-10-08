@@ -102,7 +102,28 @@
         <div class="col-lg-10">
             <asp:Repeater ID="skuTest" runat="server"  DataSourceID="selectedSKU">
                 <ItemTemplate>
-                    <h2><%# Eval("FirstName")%></h2>
+                    <!--overall upper artist info content holder-->
+                    <div class="row">
+                    
+                    <!--Artist name-->
+                    <h2><%# Eval("FirstName")%> <%# Eval("LastName")%></h2>
+                    
+                        <br />
+
+                       
+                        <!--Artist picture-->
+                        <img src="art-images/artists/medium/<%# Eval("ArtistID")%>.jpg" 
+                             alt="<%# Eval("FirstName")%>  <%# Eval("LastName")%>"
+                             class="noLeftPadding col-xs-4 col-sm-4 col-md-4 col-lg-4"/>
+                      
+                        <!--Artist description-->
+                        <div class"col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                            <!--artist description-->
+                            <p><%# Eval("Details")%></p>
+                        </div>
+
+                  <!--row-->
+                  </div>
                 </ItemTemplate>              
             </asp:Repeater>
                

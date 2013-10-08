@@ -120,7 +120,7 @@
     <asp:SqlDataSource ID="sqlArtists" 
                        runat="server" 
                        ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                       SelectCommand="SELECT * FROM [Artists] ORDER BY LastName"
+                       SelectCommand="SELECT ArtistId, FirstName, LastName, YearOfBirth, YearOfDeath FROM [Artists] ORDER BY LastName"
                        ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
     </asp:SqlDataSource>
 

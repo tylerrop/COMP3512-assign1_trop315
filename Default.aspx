@@ -80,7 +80,6 @@
                     <!--End of form-group-->
                     </div>
                     
-                    <!--ASP CHANGE-->
                     <!--Search button-->
                     <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" />
                     <!--End of search form-->
