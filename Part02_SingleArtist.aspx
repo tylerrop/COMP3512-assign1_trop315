@@ -111,23 +111,38 @@
                         <br />
 
                        
-                        <!--Artist picture-->
+                        <!--Artist picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
                         <img src="art-images/artists/medium/<%# Eval("ArtistID")%>.jpg" 
                              alt="<%# Eval("FirstName")%>  <%# Eval("LastName")%>"
-                             class="noLeftPadding col-xs-4 col-sm-4 col-md-4 col-lg-4"/>
+                             class="noLeftPadding col-xs-12 col-sm-4 col-md-4 col-lg-4"/>
                       
                         <!--Artist description-->
-                        <div class"col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
                             <!--artist description-->
                             <p><%# Eval("Details")%></p>
 
+                            <!--Favorites link-->
                             <asp:HyperLink ID="FavoritesLink" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
                                 <span class="glyphicon glyphicon-heart blueLinks"></span> Add to Favorites
                             </asp:HyperLink>
-                        </div>
 
-                  <!--row-->
-                  </div>
+                            <br />
+                            <br />
+
+                            <!--Panel for Artist Details-->
+                            <div class="panel panel-default">
+                                <p class="panel-heading">Artist Details</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item" class="panel-body"><%# Eval("YearOfBirth") %></li>
+                                    <li class="list-group-item" class="panel-body"><%# Eval("YearOfDeath") %></li>
+                                    <li class="list-group-item"><%# Eval("Nationality") %></li>
+                                </ul>
+                            <!--End of panel panel-default-->
+                            </div>
+                            
+                        <!--End of col-xs-12 col-sm-6 col-md-8 col-lg-8-->                          
+                        </div>                                
+                                   
                 </ItemTemplate>              
             </asp:Repeater>
                
