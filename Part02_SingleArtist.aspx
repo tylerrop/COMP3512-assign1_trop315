@@ -100,7 +100,7 @@
 
     <div class="container">
         <div class="col-lg-10">
-            <asp:Repeater ID="skuTest" runat="server"  DataSourceID="selectedSKU">
+            <asp:Repeater ID="skuTest" runat="server"  DataSourceID="selectedArtist">
                 <ItemTemplate>
                     <!--overall upper artist info content holder-->
                     <div class="row">
@@ -167,18 +167,51 @@
             <div class="clearfix"></div>
                
             <div class="col-lg-12">
-              <asp:Repeater ID="ArtByRepeater" runat="server" DataSourceID="selectedSKU">
+              <asp:Repeater ID="ArtByRepeater" runat="server" DataSourceID="selectedArtist">
                 <ItemTemplate>
                     <h4 class="noLeftPadding">Art by <%# Eval("FirstName")%> <%# Eval("LastName")%></h4>
                 </ItemTemplate>
              </asp:Repeater>
             </div>
 
+
+
+
+
             <div class="col-lg-12">
-              <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="selectedSKU">
+              <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="paintingsByArtist">
                 <ItemTemplate>
-                    <div class="thumbnail">
-                       
+                    <div class="thumbnail col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <!--ArtWork image-->
+                        <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>">
+                            <img src="art-images/works/square-medium/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" />
+                        </a>
+
+                        <br />
+
+                        <!--ArtWork title-->
+                        <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>"><%# Eval("Title")%></a>
+
+                        <br />
+
+                        <!--ArtWork buttons-->
+                        <!--View link-->
+                        <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>"class="btn btn-primary btn-xs">
+                            <span class="glyphicon glyphicon-info-sign"></span> View
+                        </a>
+
+                        <!--Wish link-->
+                        <a href="#"class="btn btn-success btn-xs">
+                            <span class="glyphicon glyphicon-gift"></span> Wish
+                        </a>
+
+                        <!--Wish link-->
+                        <a href="#"class="btn btn-primary btn-xs">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+                        </a>
+
+                        
+
                     <!--End of thumbnail-->
                     </div>
                 </ItemTemplate>
@@ -196,16 +229,30 @@
 
     <!--End of container-->
     </div> 
-    
-        <asp:SqlDataSource ID="selectedSKU" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-        SelectCommand="SELECT * FROM [Artists] WHERE ArtistID=@qweryID"
-        ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+        
+        <!--Artist info data source-->
+        <asp:SqlDataSource ID="selectedArtist" runat="server" 
+                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                           SelectCommand="SELECT * FROM [Artists] WHERE ArtistID=@qweryID"
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
             <SelectParameters>
                 <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
             </SelectParameters>
         </asp:SqlDataSource> 
+
+
+
+         <!--Artist painting data source-->
+        <asp:SqlDataSource ID="paintingsByArtist" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+        SelectCommand="SELECT * FROM [ArtWorks] WHERE ArtistID=@qweryID"
+        ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+
+            <SelectParameters>
+                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
     </form>
 
