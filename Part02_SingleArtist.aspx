@@ -131,12 +131,29 @@
 
                             <!--Panel for Artist Details-->
                             <div class="panel panel-default">
-                                <p class="panel-heading">Artist Details</p>
-                                <ul class="list-group">
-                                    <li class="list-group-item" class="panel-body"><%# Eval("YearOfBirth") %></li>
-                                    <li class="list-group-item" class="panel-body"><%# Eval("YearOfDeath") %></li>
-                                    <li class="list-group-item"><%# Eval("Nationality") %></li>
-                                </ul>
+                                <div class="panel-heading noMargins boldText leftPadEightPix">Artist Details</div>
+                                
+                                <!-- Table -->
+                                <table class="table">
+                                    <!--Date-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Date:</td>
+                                        <td class="col-sm-3"><%# Eval("YearOfBirth")%> - <%# Eval("YearOfDeath")%></td>
+                                    </tr>
+
+                                    <!--Nationality-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Nationality:</td>
+                                        <td class="col-sm-3"><%# Eval("Nationality")%></td>
+                                    </tr>
+
+                                    <!--Wikipedia Link-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">More Info:</td>
+                                        <td class="col-sm-3"><a href="<%# Eval("ArtistLink")%>"><%# Eval("ArtistLink")%></a></td>
+                                    </tr>
+                                </table>
+                                
                             <!--End of panel panel-default-->
                             </div>
                             
@@ -145,9 +162,37 @@
                                    
                 </ItemTemplate>              
             </asp:Repeater>
+            
+            
+            <div class="clearfix"></div>
                
+            <div class="col-lg-12">
+              <asp:Repeater ID="ArtByRepeater" runat="server" DataSourceID="selectedSKU">
+                <ItemTemplate>
+                    <h4 class="noLeftPadding">Art by <%# Eval("FirstName")%> <%# Eval("LastName")%></h4>
+                </ItemTemplate>
+             </asp:Repeater>
+            </div>
+
+            <div class="col-lg-12">
+              <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="selectedSKU">
+                <ItemTemplate>
+                    <div class="thumbnail">
+                       
+                    <!--End of thumbnail-->
+                    </div>
+                </ItemTemplate>
+             </asp:Repeater>
+            </div>
+
+
         <!--End of col-lg-10-->
         </div>
+
+
+
+
+
 
     <!--End of container-->
     </div> 

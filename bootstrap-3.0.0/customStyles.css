@@ -20,6 +20,18 @@
     padding-left:0;
 }
 
+.noMargins {
+    margin:0 0 0 0;
+}
+
+.boldText {
+    font-weight: bold;
+}
+
+.leftPadEightPix {
+    padding-left:8px;
+}
+
 .blueLinks {
     color: #428bca;
     font-weight:bold;
