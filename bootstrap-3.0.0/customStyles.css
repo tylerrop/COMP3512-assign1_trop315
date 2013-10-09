@@ -40,3 +40,10 @@
 .blueLinks:hover {
     color: #223456;
 }
+
+.singlePaintingByArtist {
+    text-align:center;
+    margin-right:0.5em;
+    margin-bottom:1em;
+}
+

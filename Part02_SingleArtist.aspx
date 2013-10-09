@@ -99,11 +99,12 @@
     <div class="topSpacing"></div>
 
     <div class="container">
-        <div class="col-lg-10">
+        <!--changed from 10-->
+        <div class="col-lg-12">
             <asp:Repeater ID="skuTest" runat="server"  DataSourceID="selectedArtist">
                 <ItemTemplate>
                     <!--overall upper artist info content holder-->
-                    <div class="row">
+                    <div class="col-lg-12">
                     
                     <!--Artist name-->
                     <h2><%# Eval("FirstName")%> <%# Eval("LastName")%></h2>
@@ -165,8 +166,9 @@
             
             
             <div class="clearfix"></div>
-               
-            <div class="col-lg-12">
+            
+            <!--Art by container-->   
+            <div class="col-lg-12 noLeftPadding">
               <asp:Repeater ID="ArtByRepeater" runat="server" DataSourceID="selectedArtist">
                 <ItemTemplate>
                     <h4 class="noLeftPadding">Art by <%# Eval("FirstName")%> <%# Eval("LastName")%></h4>
@@ -176,56 +178,57 @@
 
 
 
+            
 
+            <div class="noLeftPadding" >
+                <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="paintingsByArtist">
+                    <ItemTemplate>
+                        <div class="thumbnail col-xs-6 col-sm-4 col-md-3 singlePaintingByArtist">
+                            <!--ArtWork image-->
+                            <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>" class="thumbnail">
+                                <img src="art-images/works/square-medium/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" />
+                            </a>
 
-            <div class="col-lg-12">
-              <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="paintingsByArtist">
-                <ItemTemplate>
-                    <div class="thumbnail col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                        <!--ArtWork image-->
-                        <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>">
-                            <img src="art-images/works/square-medium/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" />
-                        </a>
+                            <br />
 
-                        <br />
+                            <!--ArtWork title-->
+                            <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>"><%# Eval("Title")%></a>
 
-                        <!--ArtWork title-->
-                        <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>"><%# Eval("Title")%></a>
+                            <br />
 
-                        <br />
+                            <!--ArtWork buttons-->
+                            <!--View link-->
+                            <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>"class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-info-sign"></span> View
+                            </a>
 
-                        <!--ArtWork buttons-->
-                        <!--View link-->
-                        <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>"class="btn btn-primary btn-xs">
-                            <span class="glyphicon glyphicon-info-sign"></span> View
-                        </a>
+                            <!--Wish link-->
+                            <a href="#"class="btn btn-success btn-xs">
+                                <span class="glyphicon glyphicon-gift"></span> Wish
+                            </a>
 
-                        <!--Wish link-->
-                        <a href="#"class="btn btn-success btn-xs">
-                            <span class="glyphicon glyphicon-gift"></span> Wish
-                        </a>
-
-                        <!--Wish link-->
-                        <a href="#"class="btn btn-primary btn-xs">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Cart
-                        </a>
+                            <!--Wish link-->
+                            <a href="#"class="btn btn-info btn-xs">
+                                <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+                            </a>
 
                         
 
-                    <!--End of thumbnail-->
-                    </div>
-                </ItemTemplate>
-             </asp:Repeater>
+                        <!--End of thumbnail-->
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+            <!--End of col-lg-12-->
             </div>
 
 
-        <!--End of col-lg-10-->
+
+
+
+
+        <!--End of row-->
         </div>
-
-
-
-
-
+        
 
     <!--End of container-->
     </div> 
@@ -243,11 +246,12 @@
 
 
 
-         <!--Artist painting data source-->
-        <asp:SqlDataSource ID="paintingsByArtist" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-        SelectCommand="SELECT * FROM [ArtWorks] WHERE ArtistID=@qweryID"
-        ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+        <!--Artist painting data source-->
+        <asp:SqlDataSource ID="paintingsByArtist" 
+                           runat="server" 
+                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                           SelectCommand="SELECT * FROM [ArtWorks] WHERE ArtistID=@qweryID"
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
             <SelectParameters>
                 <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
