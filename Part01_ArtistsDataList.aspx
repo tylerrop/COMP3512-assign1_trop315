@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
-    <title>COMP 3532 - Assign #1 | Artist Data List</title>
+    <title>COMP 3532 - Assign #1 | Artist Data List (Part 1)</title>
    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

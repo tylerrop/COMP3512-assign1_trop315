@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
-    <title>COMP 3532 - Assign #1 | Artist Data List</title>
+    <title>COMP 3532 - Assign #1 | Single Work (Part 3)</title>
    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,27 +98,108 @@
     <br />
     <div class="topSpacing"></div>
 
-    <div class="container">
-        <div class="col-lg-10">
-            <h1>Artist Data List (Part 1)</h1>
-        
+ <div class="container">
+        <!--changed from 10-->
+        <div class="col-lg-12">
+            <asp:Repeater ID="skuTest" runat="server"  DataSourceID="selectedArtist">
+                <ItemTemplate>
+                    <!--overall upper artist info content holder-->
+                    <div class="col-lg-12">
+                    
+                    <!--Painting name-->
+                    <h2><%# Eval("FirstName")%> <%# Eval("LastName")%></h2>
+                    
+                        <br />
 
-        
-         <!--End of col-lg-10-->
+                       
+                        <!--Artist picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
+                        <img src="art-images/artists/medium/<%# Eval("ArtistID")%>.jpg" 
+                             alt="<%# Eval("FirstName")%>  <%# Eval("LastName")%>"
+                             class="noLeftPadding col-xs-12 col-sm-4 col-md-4 col-lg-4"/>
+                      
+                        <!--Artist description-->
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <!--artist description-->
+                            <p><%# Eval("Details")%></p>
+
+                            <!--Favorites link-->
+                            <asp:HyperLink ID="FavoritesLink" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
+                                <span class="glyphicon glyphicon-heart blueLinks"></span> Add to Favorites
+                            </asp:HyperLink>
+
+                            <br />
+                            <br />
+
+                            <!--Panel for Artist Details-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading noMargins boldText leftPadEightPix">Artist Details</div>
+                                
+                                <!-- Table -->
+                                <table class="table">
+                                    <!--Date-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Date:</td>
+                                        <td class="col-sm-3"><%# Eval("YearOfBirth")%> - <%# Eval("YearOfDeath")%></td>
+                                    </tr>
+
+                                    <!--Nationality-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Nationality:</td>
+                                        <td class="col-sm-3"><%# Eval("Nationality")%></td>
+                                    </tr>
+
+                                    <!--Wikipedia Link-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">More Info:</td>
+                                        <td class="col-sm-3"><a href="<%# Eval("ArtistLink")%>"><%# Eval("ArtistLink")%></a></td>
+                                    </tr>
+                                </table>
+                                
+                            <!--End of panel panel-default-->
+                            </div>
+                            
+                        <!--End of col-xs-12 col-sm-6 col-md-8 col-lg-8-->                          
+                        </div>  
+                   </div>                              
+                                   
+                </ItemTemplate>              
+            </asp:Repeater>
+            
+
+           
+
+
+        <!--End of row-->
         </div>
+        
 
     <!--End of container-->
-    </div>
+    </div> 
+        
+        <!--Artist info data source-->
+        <asp:SqlDataSource ID="selectedArtist" runat="server" 
+                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                           SelectCommand="SELECT * FROM [Artists] WHERE ArtistID=@qweryID"
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+
+            <SelectParameters>
+                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
+            </SelectParameters>
+        </asp:SqlDataSource> 
 
 
 
-    <asp:SqlDataSource ID="sqlArtists" 
-                       runat="server" 
-                       ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                       SelectCommand="SELECT * FROM [Artists] ORDER BY LastName"
-                       ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-    </asp:SqlDataSource>
+        <!--Artist painting data source-->
+        <asp:SqlDataSource ID="paintingsByArtist" 
+                           runat="server" 
+                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                           SelectCommand="SELECT * FROM [ArtWorks] WHERE ArtistID=@qweryID"
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
+            <SelectParameters>
+                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
     </form>
 

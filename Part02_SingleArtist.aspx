@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
-    <title>COMP 3532 - Assign #1 | Single Artist</title>
+    <title>COMP 3532 - Assign #1 | Single Artist (Part 2)</title>
    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,9 +94,14 @@
     <!--End of navbar navbar-inverse navbar-fixed-top-->
     </div>
 
+
     <!--Extra top spacing between navbar and content-->
     <br />
+
+
+    <!--Container for Spacing-->
     <div class="topSpacing"></div>
+
 
     <div class="container">
         <!--changed from 10-->
@@ -160,27 +165,26 @@
                             
                         <!--End of col-xs-12 col-sm-6 col-md-8 col-lg-8-->                          
                         </div>  
-                        </div>                              
+                   </div>                              
                                    
                 </ItemTemplate>              
             </asp:Repeater>
             
-            
+
+            <!--spacing container-->            
             <div class="clearfix"></div>
             
             <!--Art by container-->   
             <div class="col-lg-12">
-              <asp:Repeater ID="ArtByRepeater" runat="server" DataSourceID="selectedArtist">
-                <ItemTemplate>
-                    <h4 class="noLeftPadding">Art by <%# Eval("FirstName")%> <%# Eval("LastName")%></h4>
-                </ItemTemplate>
-             </asp:Repeater>
+                <asp:Repeater ID="ArtByRepeater" runat="server" DataSourceID="selectedArtist">
+                    <ItemTemplate>
+                        <h4 class="noLeftPadding">Art by <%# Eval("FirstName")%> <%# Eval("LastName")%></h4>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
 
 
-
-            
-
+            <!--Prints out all ArtWorks by the painter-->
             <div class="col-lg-12">
                 <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="paintingsByArtist">
                     <ItemTemplate>
@@ -195,6 +199,7 @@
                             <!--ArtWork title-->
                             <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>"><%# Eval("Title")%></a>
 
+                            <br />
                             <br />
 
                             <!--ArtWork buttons-->
@@ -237,7 +242,7 @@
         <!--Artist info data source-->
         <asp:SqlDataSource ID="selectedArtist" runat="server" 
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                           SelectCommand="SELECT * FROM [Artists] WHERE ArtistID=@qweryID"
+                           SelectCommand="SELECT FirstName, LastName, ArtistID, Details, YearOfBirth, YearOfDeath, Nationality, ArtistLink FROM [Artists] WHERE ArtistID=@qweryID"
                            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
             <SelectParameters>
@@ -251,7 +256,7 @@
         <asp:SqlDataSource ID="paintingsByArtist" 
                            runat="server" 
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                           SelectCommand="SELECT * FROM [ArtWorks] WHERE ArtistID=@qweryID"
+                           SelectCommand="SELECT ArtWorkID, ImageFileName, Title FROM [ArtWorks] WHERE ArtistID=@qweryID"
                            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
             <SelectParameters>
