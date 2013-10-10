@@ -159,7 +159,8 @@
                             </div>
                             
                         <!--End of col-xs-12 col-sm-6 col-md-8 col-lg-8-->                          
-                        </div>                                
+                        </div>  
+                        </div>                              
                                    
                 </ItemTemplate>              
             </asp:Repeater>
@@ -168,7 +169,7 @@
             <div class="clearfix"></div>
             
             <!--Art by container-->   
-            <div class="col-lg-12 noLeftPadding">
+            <div class="col-lg-12">
               <asp:Repeater ID="ArtByRepeater" runat="server" DataSourceID="selectedArtist">
                 <ItemTemplate>
                     <h4 class="noLeftPadding">Art by <%# Eval("FirstName")%> <%# Eval("LastName")%></h4>
@@ -180,13 +181,13 @@
 
             
 
-            <div class="noLeftPadding" >
+            <div>
                 <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="paintingsByArtist">
                     <ItemTemplate>
-                        <div class="thumbnail col-xs-6 col-sm-4 col-md-3 singlePaintingByArtist">
+                        <div class="thumbnail col-xs-6 col-sm-4 col-md-3 col-lg-2 singlePaintingByArtist">
                             <!--ArtWork image-->
-                            <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>" class="thumbnail">
-                                <img src="art-images/works/square-medium/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" />
+                            <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>">
+                                <img src="art-images/works/square-medium/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" class="thumbnail" />
                             </a>
 
                             <br />

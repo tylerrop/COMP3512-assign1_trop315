@@ -20,6 +20,10 @@
     padding-left:0;
 }
 
+.noPadding {
+    padding:0;
+}
+
 .noMargins {
     margin:0 0 0 0;
 }
@@ -43,7 +47,8 @@
 
 .singlePaintingByArtist {
     text-align:center;
-    margin-right:0.5em;
+    margin-right:1em;
     margin-bottom:1em;
+    min-width:220px;
 }
 
