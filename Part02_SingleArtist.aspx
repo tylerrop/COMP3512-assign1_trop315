@@ -188,7 +188,7 @@
             <div class="col-lg-12">
                 <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="paintingsByArtist">
                     <ItemTemplate>
-                        <div class="thumbnail col-xs-12 col-sm-2 col-md-3 col-lg-2 singlePaintingByArtist">
+                        <div class="thumbnail col-xs-12 col-sm-2 col-md-3 col-lg-2 singlePaintingByArtist overFlow">
                             <!--ArtWork image-->
                             <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>">
                                 <img src="art-images/works/square-medium/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" class="thumbnail singlePaintingByArtistIMG" />
