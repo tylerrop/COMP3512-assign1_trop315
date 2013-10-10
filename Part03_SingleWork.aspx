@@ -101,7 +101,7 @@
  <div class="container">
         <!--changed from 10-->
         <div class="col-lg-12">
-            <asp:Repeater ID="singlePainting" runat="server"  DataSourceID="selectedPainting">
+            <asp:FormView ID="singlePainting" runat="server"  DataSourceID="paintingPainter">
                 <ItemTemplate>
                     <!--overall upper artist info content holder-->
                     <div class="col-lg-12">
@@ -112,7 +112,7 @@
                         <br />
 
                         <!--ARTIST NAME LINK HERE-->
-
+                        <p>By: <a href="Part02_SingleArtist.aspx?ArtistID=<%# Eval("ArtistID") %>"><%# Eval("FirstName") %> <%# Eval("LastName") %></a></p>
 
                        
                         <!--Artist picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
@@ -124,6 +124,9 @@
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             <!--artist description-->
                             <p><%# Eval("Description")%></p>
+
+                            <!--Painting Price-->
+                            <p class="redPrice"><%# Eval("MSRP", "{0:C}")%></p>
 
                             <!--Wish List link-->
                             <asp:HyperLink ID="FavoritesLink" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
@@ -140,7 +143,7 @@
 
                             <!--Panel for Artist Details-->
                             <div class="panel panel-default">
-                                <div class="panel-heading noMargins boldText leftPadEightPix">Artist Details</div>
+                                <div class="panel-heading noMargins boldText leftPadEightPix">Product Details</div>
                                 
                                 <!-- Table -->
                                 <table class="table">
@@ -150,16 +153,34 @@
                                         <td class="col-sm-3"></td>
                                     </tr>
 
-                                    <!--Nationality-->
+                                    <!--Medium-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
-                                        <td class="col-sm-3 boldText">Nationality:</td>
+                                        <td class="col-sm-3 boldText">Medium:</td>
                                         <td class="col-sm-3"></td>
                                     </tr>
 
-                                    <!--Wikipedia Link-->
+                                    <!--Dimension-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
-                                        <td class="col-sm-3 boldText">More Info:</td>
-                                        <td class="col-sm-3"><a href="#"></a></td>
+                                        <td class="col-sm-3 boldText">Dimension:</td>
+                                        <td class="col-sm-3"></td>
+                                    </tr>
+
+                                    <!--Home-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Home:</td>
+                                        <td class="col-sm-3"></td>
+                                    </tr>
+
+                                    <!--Genres-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Genres:</td>
+                                        <td class="col-sm-3"></td>
+                                    </tr>
+
+                                    <!--Subjects-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Subjects:</td>
+                                        <td class="col-sm-3"></td>
                                     </tr>
                                 </table>
                                 
@@ -171,7 +192,7 @@
                    </div>                              
                                    
                 </ItemTemplate>              
-            </asp:Repeater>
+            </asp:FormView>
             
 
            
@@ -214,9 +235,10 @@
         <asp:SqlDataSource ID="paintingPainter"
                            runat="server"
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                           SelectCommand="SELECT * FROM ArtWorks, Artists, OrderDetails
-                                          WHERE ArtWorks.ArtWorkID=?
-                                          AND Artists.ArtistID=ArtWorks.ArtWorkID">
+                           SelectCommand="SELECT a.*, b.FirstName, b.LastName FROM ArtWorks a, Artists b
+                                          WHERE a.ArtWorkID=@qweryID
+                                          AND b.ArtistID=a.ArtWorkID"
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
             <SelectParameters>
                 <asp:QueryStringParameter Name="qweryID" QueryStringField="ArtWorkID" />
             </SelectParameters>

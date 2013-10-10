@@ -64,3 +64,8 @@
     text-overflow:ellipsis;
 }
 
+.redPrice {
+    color:red;
+    font-weight:bold;
+}
+
