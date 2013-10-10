@@ -118,7 +118,7 @@
                              class="noLeftPadding col-xs-12 col-sm-4 col-md-4 col-lg-4"/>
                       
                         <!--Artist description-->
-                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             <!--artist description-->
                             <p><%# Eval("Details")%></p>
 
@@ -181,13 +181,13 @@
 
             
 
-            <div>
+            <div class="col-lg-12">
                 <asp:Repeater ID="ArtworksRepeater" runat="server" DataSourceID="paintingsByArtist">
                     <ItemTemplate>
-                        <div class="thumbnail col-xs-6 col-sm-4 col-md-3 col-lg-2 singlePaintingByArtist">
+                        <div class="thumbnail col-xs-12 col-sm-2 col-md-3 col-lg-2 singlePaintingByArtist">
                             <!--ArtWork image-->
                             <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>">
-                                <img src="art-images/works/square-medium/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" class="thumbnail" />
+                                <img src="art-images/works/square-medium/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" class="thumbnail singlePaintingByArtistIMG" />
                             </a>
 
                             <br />

@@ -47,8 +47,14 @@
 
 .singlePaintingByArtist {
     text-align:center;
-    margin-right:1em;
+    margin-right:3em;
     margin-bottom:1em;
     min-width:220px;
+}
+
+.singlePaintingByArtistIMG {
+    display:block; 
+    margin-left: auto; 
+    margin-right:auto;
 }
 
