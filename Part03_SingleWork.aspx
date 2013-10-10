@@ -7,14 +7,14 @@
     http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
     <title>COMP 3532 - Assign #1 | Single Work (Part 3)</title>
    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
     <link rel="icon" type="image/png" href="art-images/server_client_exchange.ico" />
 
     <!--Bootstrap-->
-    <link href="bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet"/>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -101,26 +101,28 @@
  <div class="container">
         <!--changed from 10-->
         <div class="col-lg-12">
-            <asp:Repeater ID="skuTest" runat="server"  DataSourceID="selectedArtist">
+            <asp:Repeater ID="singlePainting" runat="server"  DataSourceID="selectedPainting">
                 <ItemTemplate>
                     <!--overall upper artist info content holder-->
                     <div class="col-lg-12">
                     
                     <!--Painting name-->
-                    <h2><%# Eval("FirstName")%> <%# Eval("LastName")%></h2>
+                    <h2><%# Eval("Title")%></h2>
                     
                         <br />
 
+                        <!--ARTIST NAME LINK HERE-->
+
                        
                         <!--Artist picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
-                        <img src="art-images/artists/medium/<%# Eval("ArtistID")%>.jpg" 
-                             alt="<%# Eval("FirstName")%>  <%# Eval("LastName")%>"
+                        <img src="art-images/works/medium/<%# Eval("ImageFileName")%>.jpg" 
+                             alt=""
                              class="noLeftPadding col-xs-12 col-sm-4 col-md-4 col-lg-4"/>
                       
                         <!--Artist description-->
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             <!--artist description-->
-                            <p><%# Eval("Details")%></p>
+                            <p><%# Eval("Description")%></p>
 
                             <!--Favorites link-->
                             <asp:HyperLink ID="FavoritesLink" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
@@ -139,19 +141,19 @@
                                     <!--Date-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Date:</td>
-                                        <td class="col-sm-3"><%# Eval("YearOfBirth")%> - <%# Eval("YearOfDeath")%></td>
+                                        <td class="col-sm-3"></td>
                                     </tr>
 
                                     <!--Nationality-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Nationality:</td>
-                                        <td class="col-sm-3"><%# Eval("Nationality")%></td>
+                                        <td class="col-sm-3"></td>
                                     </tr>
 
                                     <!--Wikipedia Link-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">More Info:</td>
-                                        <td class="col-sm-3"><a href="<%# Eval("ArtistLink")%>"><%# Eval("ArtistLink")%></a></td>
+                                        <td class="col-sm-3"><a href="#"></a></td>
                                     </tr>
                                 </table>
                                 
@@ -177,13 +179,13 @@
     </div> 
         
         <!--Artist info data source-->
-        <asp:SqlDataSource ID="selectedArtist" runat="server" 
+        <asp:SqlDataSource ID="selectedPainting" runat="server" 
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                           SelectCommand="SELECT * FROM [Artists] WHERE ArtistID=@qweryID"
+                           SelectCommand="SELECT * FROM [ArtWorks] WHERE ArtWorkID=@qweryID"
                            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
             <SelectParameters>
-                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
+                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtWorkID" />
             </SelectParameters>
         </asp:SqlDataSource> 
 
