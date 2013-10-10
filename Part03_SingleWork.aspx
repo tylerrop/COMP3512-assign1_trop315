@@ -113,6 +113,7 @@
 
                         <!--ARTIST NAME LINK HERE-->
 
+
                        
                         <!--Artist picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
                         <img src="art-images/works/medium/<%# Eval("ImageFileName")%>.jpg" 
@@ -124,9 +125,14 @@
                             <!--artist description-->
                             <p><%# Eval("Description")%></p>
 
-                            <!--Favorites link-->
+                            <!--Wish List link-->
                             <asp:HyperLink ID="FavoritesLink" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
-                                <span class="glyphicon glyphicon-heart blueLinks"></span> Add to Favorites
+                                <span class="glyphicon glyphicon-gift blueLinks"></span> Add to Wish List
+                            </asp:HyperLink>
+
+                            <!--Shoping Cart link-->
+                            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
+                                <span class="glyphicon glyphicon-shopping-cart blueLinks"></span> Add to Shopping Cart
                             </asp:HyperLink>
 
                             <br />
@@ -202,6 +208,20 @@
                 <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
             </SelectParameters>
         </asp:SqlDataSource>
+
+
+        <!--Artist Name data source-->
+        <asp:SqlDataSource ID="paintingPainter"
+                           runat="server"
+                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                           SelectCommand="SELECT * FROM ArtWorks, Artists, OrderDetails
+                                          WHERE ArtWorks.ArtWorkID=?
+                                          AND Artists.ArtistID=ArtWorks.ArtWorkID">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="qweryID" QueryStringField="ArtWorkID" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+
 
     </form>
 

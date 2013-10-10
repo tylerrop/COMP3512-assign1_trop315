@@ -246,7 +246,7 @@
                            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
             <SelectParameters>
-                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
+                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" DefaultValue="19" />
             </SelectParameters>
         </asp:SqlDataSource> 
 
@@ -260,7 +260,7 @@
                            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
             <SelectParameters>
-                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
+                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" DefaultValue="19" />
             </SelectParameters>
         </asp:SqlDataSource>
 
