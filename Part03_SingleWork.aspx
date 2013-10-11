@@ -178,19 +178,24 @@
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Genres:</td>
                                         <td class="col-sm-3">
-                                            <asp:Repeater runat="server" DataSourceID="Genres">
+                                            <asp:Repeater runat="server" ID="PaintingGenres" DataSourceID="Genres">
                                                 <ItemTemplate>
                                                     <a href="#"><%# Eval("GenreName")%></a><br />
                                                 </ItemTemplate>
                                             </asp:Repeater>
-
-                                        </td>
+                                         </td>
                                     </tr>
 
                                     <!--Subjects NEEDS REPEATER-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Subjects:</td>
-                                        <td class="col-sm-3"></td>
+                                        <td class="col-sm-3">
+                                            <asp:Repeater ID="PaintingSubjects" runat="server" DataSourceID="Subjects">
+                                                <ItemTemplate>
+                                                    <a href="#"><%# Eval("SubjectName")%></a><br />
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </td>
                                     </tr>
                                 </table>
                                 
@@ -255,35 +260,33 @@
                                           artist.FirstName, 
                                           artist.LastName FROM ArtWorks works, Artists artist WHERE works.ArtWorkID=?
                                          AND works.ArtistID=artist.ArtistID"
-        ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-
-        <SelectParameters>
-            <asp:QueryStringParameter
-                Name="art"
-                QueryStringField="ArtWorkID"
-                Type="int32"
-                DefaultValue="394" />
-            </SelectParameters>
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+            <SelectParameters>
+                <asp:QueryStringParameter
+                    Name="art"
+                    QueryStringField="ArtWorkID"
+                    Type="int32"
+                    DefaultValue="394" />
+             </SelectParameters>
         </asp:SqlDataSource>
 
 
 
 
         <!--Order Info data source-->
-          <asp:SqlDataSource ID="OrderInfo" 
+        <asp:SqlDataSource ID="OrderInfo" 
                            runat="server"
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
                            SelectCommand="SELECT ord.DateCreated FROM Orders ord, OrderDetails det 
                                           WHERE det.ArtWorkID=? AND 
                                           det.OrderID=ord.OrderID"
                            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-
-        <SelectParameters>
-            <asp:QueryStringParameter
-                Name="art"
-                QueryStringField="ArtWorkID"
-                Type="int32"
-                DefaultValue="394" />
+            <SelectParameters>
+                <asp:QueryStringParameter
+                    Name="art"
+                    QueryStringField="ArtWorkID"
+                    Type="int32"
+                    DefaultValue="394" />
             </SelectParameters>
         </asp:SqlDataSource>
 
@@ -296,14 +299,13 @@
                            SelectCommand="SELECT g.GenreName FROM Genres g, ArtWorkGenres a 
                                           WHERE a.ArtWorkID=? AND 
                                           g.GenreID=a.GenreID"
-         ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-
-         <SelectParameters>
-             <asp:QueryStringParameter
-                Name="art"
-                QueryStringField="ArtWorkID"
-                Type="int32"
-                DefaultValue="394" />
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+             <SelectParameters>
+                 <asp:QueryStringParameter
+                    Name="art"
+                    QueryStringField="ArtWorkID"
+                    Type="int32"
+                    DefaultValue="394" />
              </SelectParameters>
          </asp:SqlDataSource>
 
@@ -313,17 +315,16 @@
          <asp:SqlDataSource ID="Subjects" 
                            runat="server"
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                           SelectCommand="SELECT s.SubjectName FROM Subject s, ArtWorkSubjects a 
+                           SelectCommand="SELECT s.SubjectName FROM Subjects s, ArtWorkSubjects a 
                                           WHERE a.ArtWorkID=? AND 
                                           s.SubjectID=a.SubjectID"
-         ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-
-         <SelectParameters>
-             <asp:QueryStringParameter
-                Name="art"
-                QueryStringField="ArtWorkID"
-                Type="int32"
-                DefaultValue="394" />
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+             <SelectParameters>
+                 <asp:QueryStringParameter
+                    Name="art"
+                    QueryStringField="ArtWorkID"
+                    Type="int32"
+                    DefaultValue="394" />
              </SelectParameters>
          </asp:SqlDataSource>
 
