@@ -101,7 +101,7 @@
  <div class="container">
         <!--changed from 10-->
         <div class="col-lg-12">
-            <asp:FormView ID="singlePainting" runat="server"  DataSourceID="paintingPainter">
+            <asp:FormView ID="singlePainting" runat="server"  DataSourceID="workData">
                 <ItemTemplate>
                     <!--overall upper artist info content holder-->
                     <div class="col-lg-12">
@@ -109,8 +109,6 @@
                     <!--Painting name-->
                     <h2><%# Eval("Title")%></h2>
                     
-                        <br />
-
                         <!--ARTIST NAME LINK HERE-->
                         <p>By: <a href="Part02_SingleArtist.aspx?ArtistID=<%# Eval("ArtistID") %>"><%# Eval("FirstName") %> <%# Eval("LastName") %></a></p>
 
@@ -205,44 +203,93 @@
     <!--End of container-->
     </div> 
         
-        <!--Artist info data source-->
-        <asp:SqlDataSource ID="selectedPainting" runat="server" 
-                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                           SelectCommand="SELECT * FROM [ArtWorks] WHERE ArtWorkID=@qweryID"
-                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-
-            <SelectParameters>
-                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtWorkID" />
-            </SelectParameters>
-        </asp:SqlDataSource> 
-
-
-
-        <!--Artist painting data source-->
-        <asp:SqlDataSource ID="paintingsByArtist" 
-                           runat="server" 
-                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                           SelectCommand="SELECT * FROM [ArtWorks] WHERE ArtistID=@qweryID"
-                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-
-            <SelectParameters>
-                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-
-
-        <!--Artist Name data source-->
-        <asp:SqlDataSource ID="paintingPainter"
+        
+       
+        <!----------------------------------------------------------->
+        <!-- WORK INFO DATA SOURCE used for formview-->
+        <asp:SqlDataSource ID="workData" 
                            runat="server"
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                           SelectCommand="SELECT a.*, b.FirstName, b.LastName FROM ArtWorks a, Artists b
-                                          WHERE a.ArtWorkID=@qweryID
-                                          AND b.ArtistID=a.ArtWorkID"
-                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="qweryID" QueryStringField="ArtWorkID" />
+                           SelectCommand="SELECT works.*, 
+                                          artist.FirstName, 
+                                          artist.LastName FROM ArtWorks works, Artists artist WHERE works.ArtWorkID=?
+                                         AND works.ArtistID=artist.ArtistID"
+        ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+
+        <SelectParameters>
+            <asp:QueryStringParameter
+                Name="art"
+                QueryStringField="ArtWorkID"
+                Type="int32"
+                DefaultValue="394" />
             </SelectParameters>
         </asp:SqlDataSource>
+
+
+
+
+        <!--Order Info data source-->
+          <asp:SqlDataSource ID="OrderInfo" 
+                           runat="server"
+                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                           SelectCommand="SELECT ord.DateCreated FROM Orders ord, OrderDetails det 
+                                          WHERE det.ArtWorkID=? AND 
+                                          det.OrderID=ord.OrderID"
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+
+        <SelectParameters>
+            <asp:QueryStringParameter
+                Name="art"
+                QueryStringField="ArtWorkID"
+                Type="int32"
+                DefaultValue="394" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+
+
+
+         <!--Genres data source-->
+         <asp:SqlDataSource ID="Genres" 
+                           runat="server"
+                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                           SelectCommand="SELECT g.GenreName FROM Genre g, ArtWorkGenres a 
+                                          WHERE a.ArtWorkID=? AND 
+                                          g.GenreID=a.GenreID"
+         ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+
+         <SelectParameters>
+             <asp:QueryStringParameter
+                Name="art"
+                QueryStringField="ArtWorkID"
+                Type="int32"
+                DefaultValue="394" />
+             </SelectParameters>
+         </asp:SqlDataSource>
+
+
+
+         <!--Subjects data source-->
+         <asp:SqlDataSource ID="SqlDataSource2" 
+                           runat="server"
+                           ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                           SelectCommand="SELECT s.SubjectName FROM Subject s, ArtWorkSubjects a 
+                                          WHERE a.ArtWorkID=? AND 
+                                          s.SubjectID=a.SubjectID"
+         ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+
+         <SelectParameters>
+             <asp:QueryStringParameter
+                Name="art"
+                QueryStringField="ArtWorkID"
+                Type="int32"
+                DefaultValue="394" />
+             </SelectParameters>
+         </asp:SqlDataSource>
+
+
+
+        
+
 
 
     </form>
