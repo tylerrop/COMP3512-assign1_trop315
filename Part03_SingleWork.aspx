@@ -119,29 +119,12 @@
                              class="noLeftPadding col-xs-12 col-sm-4 col-md-4 col-lg-4"/>
                       
                         <!--Artist description-->
-                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
                             <!--artist description paragraph-->
-                            <p class="col-lg-8 noLeftPadding"><%# Eval("Description")%></p>
+                            <p class="col-lg-12 noLeftPadding"><%# Eval("Description")%></p>
                             
-                                    <!--Sales Panel-->
-                                    <div class="col-xs-4 col-sm-5 col-md-4 col-lg-4 noLeftPadding">
-                                        <div class="panel panel-info">
-                                            <div class="panel-heading noMargins leftPadEightPix">Sales</div>
+                                    <!--SALES WAS HERE-->
 
-                                            <table class="table">
-                                            
-                                                <asp:Repeater ID="SalesDates" runat="server" DataSourceID="OrderInfo">
-                                                    <ItemTemplate>
-                                                        <tr>
-                                                            <td><a href="#"><%# Eval("DateCreated", "{0:M/dd/yyyy}") %></a></td>
-                                                        </tr>
-                                                    </ItemTemplate>
-                                                    
-                                                </asp:Repeater>
-                                            </table>
-                                        </div>
-                                    <!--End of Sales Panel-->
-                                    </div>
                             
                             <br clear="all" />
 
@@ -159,6 +142,11 @@
                             <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
                                 <span class="glyphicon glyphicon-shopping-cart blueLinks"></span> Add to Shopping Cart
                             </asp:HyperLink>
+
+
+
+
+
 
                             <br />
                             <br />
@@ -211,7 +199,41 @@
                             
                         <!--End of col-xs-12 col-sm-6 col-md-8 col-lg-8-->                          
                         </div>  
-                   </div>                              
+
+
+                        
+
+
+                        <!--Sales right ovver here-->
+                        <!--Sales Panel  col-xs-4 col-sm-5 col-md-12 col-lg-2 noLeftPadding-->
+                        <!--"col-xs-12 col-sm-8 col-md-offset-4 col-lg-2 col-lg-offset-10 noLeftPadding" style="padding-left: 15px;"-->
+                        <div class="col-xs-12 
+                                    col-sm-8 col-sm-offset-4 
+                                    col-md-8 col-md-offset-4 
+                                    col-lg-2 col-lg-offset-0 
+                                    noLeftPadding" style="padding-left: 15px;">
+                            <div class="panel panel-info">
+                                <div class="panel-heading noMargins leftPadEightPix">Sales</div>
+                                    <table class="table">
+                                            
+                                        <asp:Repeater ID="SalesDates" runat="server" DataSourceID="OrderInfo">
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <td><a href="#"><%# Eval("DateCreated", "{0:M/dd/yyyy}") %></a></td>
+                                                </tr>
+                                            </ItemTemplate>
+                                                    
+                                         </asp:Repeater>
+                                      </table>
+                                  </div>
+                                  
+                            <!--End of panel oanel-info-->
+                            </div>
+                        <!--End of col-xs-4 col-sm-5 col-md-4 col-lg-2 noLeftPadding-->
+                        </div>                  
+
+
+                                    
                                    
                 </ItemTemplate>              
             </asp:FormView>
