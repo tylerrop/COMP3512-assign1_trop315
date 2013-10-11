@@ -120,8 +120,32 @@
                       
                         <!--Artist description-->
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            <!--artist description-->
-                            <p><%# Eval("Description")%></p>
+                            <!--artist description paragraph-->
+                            <p class="col-lg-8 noLeftPadding"><%# Eval("Description")%></p>
+                            
+                                    <!--Sales Panel-->
+                                    <div class="col-xs-4 col-sm-5 col-md-4 col-lg-4 noLeftPadding">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading noMargins leftPadEightPix">Sales</div>
+
+                                            <table class="table">
+                                            
+                                                <asp:Repeater ID="SalesDates" runat="server" DataSourceID="OrderInfo">
+                                                    <ItemTemplate>
+                                                        <tr>
+                                                            <td><a href="#"><%# Eval("DateCreated", "{0:M/dd/yyyy}") %></a></td>
+                                                        </tr>
+                                                    </ItemTemplate>
+                                                    
+                                                </asp:Repeater>
+                                            </table>
+                                        </div>
+                                    <!--End of Sales Panel-->
+                                    </div>
+                            
+                            <br clear="all" />
+
+
 
                             <!--Painting Price-->
                             <p class="redPrice"><%# Eval("MSRP", "{0:C}")%></p>
@@ -169,13 +193,13 @@
                                         <td class="col-sm-3"></td>
                                     </tr>
 
-                                    <!--Genres-->
+                                    <!--Genres NEEDS REPEATER-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Genres:</td>
                                         <td class="col-sm-3"></td>
                                     </tr>
 
-                                    <!--Subjects-->
+                                    <!--Subjects NEEDS REPEATER-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Subjects:</td>
                                         <td class="col-sm-3"></td>
@@ -269,7 +293,7 @@
 
 
          <!--Subjects data source-->
-         <asp:SqlDataSource ID="SqlDataSource2" 
+         <asp:SqlDataSource ID="Subjects" 
                            runat="server"
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
                            SelectCommand="SELECT s.SubjectName FROM Subject s, ArtWorkSubjects a 
