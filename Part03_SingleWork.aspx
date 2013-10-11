@@ -113,45 +113,38 @@
                         <p>By: <a href="Part02_SingleArtist.aspx?ArtistID=<%# Eval("ArtistID") %>"><%# Eval("FirstName") %> <%# Eval("LastName") %></a></p>
 
                        
-                        <!--Artist picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
+                        <!--ArtWork picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
                         <img src="art-images/works/medium/<%# Eval("ImageFileName")%>.jpg" 
                              alt=""
                              class="noLeftPadding col-xs-12 col-sm-4 col-md-4 col-lg-4"/>
                       
-                        <!--Artist description-->
+                        <!--ArtWork Info-->
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
                             <!--artist description paragraph-->
                             <p class="col-lg-12 noLeftPadding"><%# Eval("Description")%></p>
-                            
-                                    <!--SALES WAS HERE-->
-
-                            
-                            <br clear="all" />
-
-
 
                             <!--Painting Price-->
                             <p class="redPrice"><%# Eval("MSRP", "{0:C}")%></p>
 
-                            <!--Wish List link-->
-                            <asp:HyperLink ID="FavoritesLink" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
+
+                            
+                            <div class="btn-group">
+                                 <!--Wish List link-->
+                            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
                                 <span class="glyphicon glyphicon-gift blueLinks"></span> Add to Wish List
                             </asp:HyperLink>
 
                             <!--Shoping Cart link-->
-                            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
+                            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
                                 <span class="glyphicon glyphicon-shopping-cart blueLinks"></span> Add to Shopping Cart
                             </asp:HyperLink>
-
-
-
-
-
+                            <!--End of btn-group-->
+                            </div>
 
                             <br />
                             <br />
 
-                            <!--Panel for Artist Details-->
+                            <!--Panel for ArtistWork Details-->
                             <div class="panel panel-default">
                                 <div class="panel-heading noMargins boldText leftPadEightPix">Product Details</div>
                                 
@@ -201,17 +194,12 @@
                         </div>  
 
 
-                        
-
-
-                        <!--Sales right ovver here-->
-                        <!--Sales Panel  col-xs-4 col-sm-5 col-md-12 col-lg-2 noLeftPadding-->
-                        <!--"col-xs-12 col-sm-8 col-md-offset-4 col-lg-2 col-lg-offset-10 noLeftPadding" style="padding-left: 15px;"-->
+                       
+                        <!--Sales Panel-->
                         <div class="col-xs-12 
                                     col-sm-8 col-sm-offset-4 
                                     col-md-8 col-md-offset-4 
-                                    col-lg-2 col-lg-offset-0 
-                                    noLeftPadding" style="padding-left: 15px;">
+                                    col-lg-2 col-lg-offset-0">
                             <div class="panel panel-info">
                                 <div class="panel-heading noMargins leftPadEightPix">Sales</div>
                                     <table class="table">
@@ -229,7 +217,7 @@
                                   
                             <!--End of panel oanel-info-->
                             </div>
-                        <!--End of col-xs-4 col-sm-5 col-md-4 col-lg-2 noLeftPadding-->
+                        <!--End of col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-2 col-lg-offset-0 noLeftPadding" style="padding-left: 15px;-->
                         </div>                  
 
 
