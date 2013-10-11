@@ -146,38 +146,45 @@
 
                             <!--Panel for ArtistWork Details-->
                             <div class="panel panel-default">
-                                <div class="panel-heading noMargins boldText leftPadEightPix">Product Details</div>
+                                <div class="panel-heading noMargins leftPadEightPix">Product Details</div>
                                 
                                 <!-- Table -->
                                 <table class="table">
                                     <!--Date-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Date:</td>
-                                        <td class="col-sm-3"></td>
+                                        <td class="col-sm-3"><%# Eval("YearOfWork")%></td>
                                     </tr>
 
                                     <!--Medium-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Medium:</td>
-                                        <td class="col-sm-3"></td>
+                                        <td class="col-sm-3"><%# Eval("Medium")%></td>
                                     </tr>
 
                                     <!--Dimension-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Dimension:</td>
-                                        <td class="col-sm-3"></td>
+                                        <td class="col-sm-3"><%# Eval("Width")%> cm x <%# Eval("Height")%> cm</td>
                                     </tr>
 
                                     <!--Home-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Home:</td>
-                                        <td class="col-sm-3"></td>
+                                        <td class="col-sm-3"><%# Eval("OriginalHome")%></td>
                                     </tr>
 
                                     <!--Genres NEEDS REPEATER-->
                                     <tr class="col-xs-12 col-sm-12 col-md-12">
                                         <td class="col-sm-3 boldText">Genres:</td>
-                                        <td class="col-sm-3"></td>
+                                        <td class="col-sm-3">
+                                            <asp:Repeater runat="server" DataSourceID="Genres">
+                                                <ItemTemplate>
+                                                    <a href="#"><%# Eval("GenreName")%></a><br />
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+
+                                        </td>
                                     </tr>
 
                                     <!--Subjects NEEDS REPEATER-->
@@ -286,7 +293,7 @@
          <asp:SqlDataSource ID="Genres" 
                            runat="server"
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                           SelectCommand="SELECT g.GenreName FROM Genre g, ArtWorkGenres a 
+                           SelectCommand="SELECT g.GenreName FROM Genres g, ArtWorkGenres a 
                                           WHERE a.ArtWorkID=? AND 
                                           g.GenreID=a.GenreID"
          ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
