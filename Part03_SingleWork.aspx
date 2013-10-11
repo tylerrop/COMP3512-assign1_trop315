@@ -113,10 +113,55 @@
                         <p>By: <a href="Part02_SingleArtist.aspx?ArtistID=<%# Eval("ArtistID") %>"><%# Eval("FirstName") %> <%# Eval("LastName") %></a></p>
 
                        
+
+
+
+
+                        <!--ArtWork Picture trigger modal -->
+                        <a data-toggle="modal" href="#myModal">
+
                         <!--ArtWork picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
                         <img src="art-images/works/medium/<%# Eval("ImageFileName")%>.jpg" 
-                             alt=""
+                             alt="<%# Eval("Title")%>"
                              class="noLeftPadding col-xs-12 col-sm-4 col-md-4 col-lg-4"/>
+                        </a>
+
+
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title"><%# Eval("Title") %> by <%# Eval("FirstName") %> <%# Eval("LastName") %></h4>
+                                </div>
+                                <div class="modal-body">
+                                   <img src="art-images/works/large/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" class="modalPic"/>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  
+                                </div>
+                              </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                          </div><!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       
                         <!--ArtWork Info-->
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
