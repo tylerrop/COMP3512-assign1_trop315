@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
-    <title>COMP 3532 - Assign #1 | Single Work (Part 3)</title>
+    <title>COMP 3532 - Assign #1 | Single Work (Part 03)</title>
    
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <link rel="icon" type="image/png" href="art-images/server_client_exchange.ico" />
+    <link rel="icon" type="image/png" href="art-images/favicon.png"/>
 
     <!--Bootstrap-->
     <link href="bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet"/>
