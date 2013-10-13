@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
-    <title>COMP 3532 - Assign #1 | Artist Data List</title>
+    <title>COMP 3532 - Assign #1 | About Us</title>
    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,28 +98,92 @@
     <br />
     <div class="topSpacing"></div>
 
-    <div class="container">
-        <div class="col-lg-10">
-            <h1>Artist Data List (Part 1)</h1>
-        
+ <div class="container">
+        <!--changed from 10-->
+        <div class="col-lg-12">
+            
+                    <!--overall upper artist info content holder-->
+                    <div class="col-lg-12">
+                    
+                    <!--Page title-->
+                    <h2>About Us</h2>
+                    
 
-        
-         <!--End of col-lg-10-->
+                        <!--Self picture col-xs-4 col-sm-4 col-md-4 col-lg-4-->
+                        <img src="art-images/MRU_2c_logo_RGB.jpg"
+                             alt="Mount Royal University Logo"
+                             class="noLeftPadding col-xs-12 col-sm-4 col-md-4 col-lg-4"/>
+
+                        <!--About Info-->
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+                            <!--artist description paragraph-->
+                            <p class="col-lg-12 noLeftPadding lead">This website was coded by Tyler Rop for the class of COMP 3512 at Mount Royal University in the Fall semester of 2013.</p>
+                            <p class="col-lg-12 noLeftPadding lead">The images and copy text present in this site are not owned by Tyler Rop and are not for sale.</p>            
+                        <!--End of col-xs-12 col-sm-6 col-md-8 col-lg-8-->                          
+                        </div>  
+                        
+
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-offset-4 col-md-8 col-lg-offset-4 col-lg-6">
+                        <!--Panel for ArtistWork Details-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading noMargins leftPadEightPix boldText">Assignment Details</div>
+                                
+                                <!-- Table -->
+                                <table class="table">
+                                    <!--Date-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Date: </td>
+                                        <td class="col-sm-3">October 18, 2013</td>
+                                    </tr>
+
+                                    <!--University-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">University:</td>
+                                        <td class="col-sm-3">Mount Royal University</td>
+                                    </tr>
+
+                                    <!--Class-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Class:</td>
+                                        <td class="col-sm-3">COMP 3512</td>
+                                    </tr>
+
+                                    <!--Professor-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Professor:</td>
+                                        <td class="col-sm-3">Randy Connolly</td>
+                                    </tr>
+
+                                    <!--Student-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Student:</td>
+                                        <td class="col-sm-3">Tyler Rop</td>
+                                    </tr>
+                                    
+                                    <!--Assignment-->
+                                    <tr class="col-xs-12 col-sm-12 col-md-12">
+                                        <td class="col-sm-3 boldText">Assignment:</td>
+                                        <td class="col-sm-3">#1 Database-Driven Web Pages</td>
+                                    </tr>
+                                                                       
+                                    </tr>
+                                </table>
+                                
+                            <!--End of panel panel-default-->
+                            </div>
+                            
+                        <!--End of col-xs-12 col-sm-6 col-md-8 col-lg-8-->                          
+                        </div>  
+
+
+        <!--End of row-->
         </div>
+        
 
     <!--End of container-->
-    </div>
-
-
-
-    <asp:SqlDataSource ID="sqlArtists" 
-                       runat="server" 
-                       ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                       SelectCommand="SELECT * FROM [Artists] ORDER BY LastName"
-                       ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-    </asp:SqlDataSource>
-
-
+    </div> 
+        
+     
     </form>
 
    <!-- Bootstrap core JavaScript
