@@ -1,10 +1,9 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Part03_SingleWork.aspx.vb" Inherits="Part03_SingleWork" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Part03_SingleWork.aspx.cs" Inherits="Part03_SingleWork" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
+<head runat="server">
     <title>COMP 3532 - Assign #1 | Single Work (Part 03)</title>
    
     <meta charset="utf-8"/>

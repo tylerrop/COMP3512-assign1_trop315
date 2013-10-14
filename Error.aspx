@@ -1,10 +1,9 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Error.aspx.vb" Inherits="Error" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Error.aspx.cs" Inherits="Error" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
     <title>COMP 3532 - Assign #1 | Error</title>
    
     <meta charset="utf-8"/>
@@ -100,20 +99,34 @@
 
     <div class="container">
         <div class="col-lg-10">
-            
-        <!--End of col-lg-10-->
+            <h1>Error</h1>
+        
+
+        
+         <!--End of col-lg-10-->
         </div>
 
     <!--End of container-->
     </div>
 
+
+
+    <asp:SqlDataSource ID="sqlArtists" 
+                       runat="server" 
+                       ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                       SelectCommand="SELECT * FROM [Artists] ORDER BY LastName"
+                       ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+    </asp:SqlDataSource>
+
+
     </form>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap-3.0.0/assets/js/jquery.js"></script>
-    <script src="bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+   <!-- Bootstrap core JavaScript
+   ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <script src="bootstrap-3.0.0/assets/js/jquery.js"></script>
+   <script src="bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>

@@ -1,10 +1,9 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Part04_Search.aspx.vb" Inherits="Part04_Search" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Part04_Search.aspx.cs" Inherits="Part04_Search" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
+<head runat="server">
     <title>COMP 3532 - Assign #1 | Search (Part 04)</title>
    
     <meta charset="utf-8"/>
@@ -100,7 +99,7 @@
 
     <div class="container">
         <div class="col-lg-10">
-            <h1>Artist Data List (Part 1)</h1>
+            <h1>Search Results (Part 4)</h1>
         
 
         

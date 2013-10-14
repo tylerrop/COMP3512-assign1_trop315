@@ -1,10 +1,9 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Part02_SingleArtist.aspx.vb" Inherits="Part02_SingleArtist" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Part02_SingleArtist.aspx.cs" Inherits="Part02_SingleArtist" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    http://localhost:11250/COMP3512-assign1_trop315/Default.aspx#about
+<head runat="server">
     <title>COMP 3532 - Assign #1 | Single Artist (Part 02)</title>
    
     <meta charset="utf-8"/>
@@ -242,11 +241,14 @@
         <!--Artist info data source-->
         <asp:SqlDataSource ID="selectedArtist" runat="server" 
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                           SelectCommand="SELECT FirstName, LastName, ArtistID, Details, YearOfBirth, YearOfDeath, Nationality, ArtistLink FROM [Artists] WHERE ArtistID=@qweryID"
+                           SelectCommand="SELECT FirstName, LastName, ArtistID, Details, YearOfBirth, YearOfDeath, Nationality, ArtistLink 
+                                          FROM [Artists] WHERE ArtistID=@qweryID"
+                                                                                     
+
                            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
 
             <SelectParameters>
-                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" DefaultValue="19" />
+                <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" DefaultValue="19"  />
             </SelectParameters>
         </asp:SqlDataSource> 
 
