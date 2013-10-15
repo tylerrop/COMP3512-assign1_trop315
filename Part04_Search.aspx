@@ -79,7 +79,6 @@
                     <!--End of form-group-->
                     </div>
                     
-                    <!--ASP CHANGE-->
                     <!--Search button-->
                     <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" />
                     <!--End of search form-->
@@ -98,12 +97,44 @@
     <div class="topSpacing"></div>
 
     <div class="container">
-        <div class="col-lg-10">
-            <h1>Search Results (Part 4)</h1>
+        <div class="col-lg-12">
+            <h1>Search Results</h1>
         
+            <div class="highlight">
+                <asp:RadioButtonList id="radiolist1" runat="server">
+                   <asp:ListItem Value="1"  selected="true">Filter by Title</asp:ListItem>
 
+                   <asp:ListItem Value="2">Filter by Description</asp:ListItem>
+                   <asp:ListItem Value="3">No Filter (show all artworks)</asp:ListItem>
+                </asp:RadioButtonList>
+
+                <asp:TextBox ID="SearchQuery" TextMode="SingleLine" runat="server" CssClass="form-control" />
+                <br />
+
+                <asp:Button ID="Filter" runat="server" Text="Filter" CssClass="btn btn-primary" />
+
+            <!--End of col-lg-12 highlight-->
+            </div>
+                
+            <asp:Repeater runat="server" DataSourceID="sqlArtists">
+                <ItemTemplate>
+                    <table>
+                        <tr>
+                            <td><a href="Part03_SingleWork.aspx?ArtWorkID=#"><img src="art-images/artists/square-medium/103.jpg" alt="" /></a></td>
+                            <td class="topText leftPadEightPix"><a href="Part03_SingleWork.aspx?ArtWorkID=#">image name link</a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in tempus dolor. Fusce id justo et nisi volutpat elementum in in odio. Sed congue pulvinar aliquet. Curabitur in mi sapien. Nullam tristique enim at tortor dignissim, quis hendrerit justo dignissim. Sed nisi felis, dictum non lorem at, porta tempus magna. In convallis sollicitudin commodo.
+
+                                </p>
+                            </td>
+                        </tr>
+                    </table>               
+
+                   <br clear="all"/>
+                           
+                </ItemTemplate>
+            </asp:Repeater>
         
-         <!--End of col-lg-10-->
+         <!--End of col-lg-12-->
         </div>
 
     <!--End of container-->
