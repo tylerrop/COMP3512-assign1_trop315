@@ -101,17 +101,22 @@
             <h1>Search Results</h1>
         
             <div class="highlight">
-                <asp:RadioButtonList id="radiolist1" runat="server">
-                   <asp:ListItem Value="1"  selected="true">Filter by Title</asp:ListItem>
+              
+                <asp:RadioButton ID="FilterButton" runat="server" Value="1" Text=" Filter by Title" /> 
+                <asp:TextBox ID="TitleSearch" TextMode="SingleLine" runat="server" CssClass="form-control"/>
 
-                   <asp:ListItem Value="2">Filter by Description</asp:ListItem>
-                   <asp:ListItem Value="3">No Filter (show all artworks)</asp:ListItem>
-                </asp:RadioButtonList>
+                <asp:RadioButton runat="server" Value="2" Text=" Filter by Description" /> 
+                <asp:TextBox ID="DescSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
 
-                <asp:TextBox ID="SearchQuery" TextMode="SingleLine" runat="server" CssClass="form-control" />
+                <asp:RadioButton runat="server" Value="3" Text=" No Filter (show all artworks)" /> 
+                <asp:TextBox ID="NoFiltSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
                 <br />
 
-                <asp:Button ID="Filter" runat="server" Text="Filter" CssClass="btn btn-primary" />
+                <asp:Button ID="Button1" runat="server" Text="Filter 1" CssClass="btn btn-primary" OnClick="Button1_OnClick" />
+
+                <asp:Button ID="Button2" runat="server" Text="Filter 2" CssClass="btn btn-primary" OnClick="Button2_OnClick" />
+
+                <asp:Button ID="Button3" runat="server" Text="Filter 3" CssClass="btn btn-primary" OnClick="Button3_OnClick" />
 
             <!--End of col-lg-12 highlight-->
             </div>
