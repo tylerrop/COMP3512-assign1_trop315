@@ -99,7 +99,7 @@
 
     <div class="container">
         <div class="col-lg-10">
-            <h1>Error</h1>
+            <h1>Error Encounered</h1>
         
 
         

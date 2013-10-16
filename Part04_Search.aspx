@@ -102,14 +102,16 @@
         
             <div class="highlight">
               
-                <asp:RadioButton ID="FilterButton" runat="server" Value="1" Text=" Filter by Title" /> 
+                <asp:RadioButton ID="FilterButton" runat="server" Value="1" Text=" Filter by Title" OnCheckedChanged="RadioButton1_CheckedChanged" AutoPostBack="true" /> 
                 <asp:TextBox ID="TitleSearch" TextMode="SingleLine" runat="server" CssClass="form-control"/>
+                <br />
 
-                <asp:RadioButton runat="server" Value="2" Text=" Filter by Description" /> 
+                <asp:RadioButton runat="server" Value="2" Text=" Filter by Description" OnCheckedChanged="RadioButton2_CheckedChanged" AutoPostBack="true" /> 
                 <asp:TextBox ID="DescSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
+                <br />
 
-                <asp:RadioButton runat="server" Value="3" Text=" No Filter (show all artworks)" /> 
-                <asp:TextBox ID="NoFiltSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
+                <asp:RadioButton runat="server" Value="3" Text=" No Filter (show all artworks)"  OnCheckedChanged="RadioButton3_CheckedChanged" AutoPostBack="true" /> 
+                <!--<asp:TextBox ID="NoFiltSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />-->
                 <br />
 
                 <asp:Button ID="Button1" runat="server" Text="Filter 1" CssClass="btn btn-primary" OnClick="Button1_OnClick" />
