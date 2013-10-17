@@ -101,37 +101,52 @@
             <h1>Search Results</h1>
         
             <div class="highlight">
-              
-                <asp:RadioButton ID="FilterButton" runat="server" Value="1" Text=" Filter by Title" OnCheckedChanged="RadioButton1_CheckedChanged" AutoPostBack="true" /> 
-                <asp:TextBox ID="TitleSearch" TextMode="SingleLine" runat="server" CssClass="form-control"/>
+              <!--GroupName="SearchRadios"-->
+                <asp:RadioButton ID="TitleFilterButton" 
+                                 runat="server" 
+                                 Value="1"  
+                                 Text=" Filter by Title" 
+                                 OnCheckedChanged="RadioButton_CheckedChanged" 
+                                 AutoPostBack="true" 
+                                 GroupName="SearchRadios"/> 
+                <asp:TextBox ID="TitleSearch" TextMode="SingleLine" runat="server" CssClass="form-control" Visible="false" />
                 <br />
 
-                <asp:RadioButton runat="server" Value="2" Text=" Filter by Description" OnCheckedChanged="RadioButton2_CheckedChanged" AutoPostBack="true" /> 
-                <asp:TextBox ID="DescSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
+
+                <asp:RadioButton ID="DescFilterButton" 
+                                 runat="server" 
+                                 Value="2" 
+                                 Text=" Filter by Description" 
+                                 OnCheckedChanged="RadioButton_CheckedChanged" 
+                                 AutoPostBack="true" 
+                                 GroupName="SearchRadios"/> 
+                <asp:TextBox ID="DescSearch" TextMode="SingleLine" runat="server" CssClass="form-control" Visible="false" />
                 <br />
 
-                <asp:RadioButton runat="server" Value="3" Text=" No Filter (show all artworks)"  OnCheckedChanged="RadioButton3_CheckedChanged" AutoPostBack="true" /> 
-                <!--<asp:TextBox ID="NoFiltSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />-->
+
+                <asp:RadioButton ID="NoFilterButton" 
+                                 runat="server" 
+                                 Value="3" 
+                                 Text=" No Filter (show all artworks)"  
+                                 OnCheckedChanged="RadioButton_CheckedChanged" 
+                                 AutoPostBack="true" 
+                                 GroupName="SearchRadios" /> 
                 <br />
 
-                <asp:Button ID="Button1" runat="server" Text="Filter 1" CssClass="btn btn-primary" OnClick="Button1_OnClick" />
 
-                <asp:Button ID="Button2" runat="server" Text="Filter 2" CssClass="btn btn-primary" OnClick="Button2_OnClick" />
 
-                <asp:Button ID="Button3" runat="server" Text="Filter 3" CssClass="btn btn-primary" OnClick="Button3_OnClick" />
+                <asp:Button ID="FilterButton" runat="server" Text="Filter" CssClass="btn btn-primary" OnClick="FilterButtonPress" />
 
             <!--End of col-lg-12 highlight-->
             </div>
                 
-            <asp:Repeater runat="server" DataSourceID="sqlArtists">
+            <asp:Repeater runat="server" ID="searchRepeater">
                 <ItemTemplate>
                     <table>
                         <tr>
-                            <td><a href="Part03_SingleWork.aspx?ArtWorkID=#"><img src="art-images/artists/square-medium/103.jpg" alt="" /></a></td>
-                            <td class="topText leftPadEightPix"><a href="Part03_SingleWork.aspx?ArtWorkID=#">image name link</a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in tempus dolor. Fusce id justo et nisi volutpat elementum in in odio. Sed congue pulvinar aliquet. Curabitur in mi sapien. Nullam tristique enim at tortor dignissim, quis hendrerit justo dignissim. Sed nisi felis, dictum non lorem at, porta tempus magna. In convallis sollicitudin commodo.
-
-                                </p>
+                            <td><a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID") %>"><img src="art-images/works/square-medium/<%# Eval("ImageFileName") %>.jpg" alt="<%# Eval("Title") %>" /></a></td>
+                            <td class="topText leftPadEightPix"><a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID") %>"><%# Eval("Title") %></a>
+                                <p><%# Eval("Description") %></p>
                             </td>
                         </tr>
                     </table>               

@@ -36,6 +36,10 @@
     padding-left:8px;
 }
 
+.rightPadEightPix {
+    padding-right:8px;
+}
+
 .blueLinks {
     color: #428bca;
     font-weight:bold;
