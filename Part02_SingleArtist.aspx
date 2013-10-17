@@ -54,15 +54,12 @@
                     
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
-                        <!--ASP CHANGE-->
-
 
                         <ul class="dropdown-menu">
                             <li><asp:HyperLink ID="ArtistsDataLink" runat="server" NavigateUrl="~/Part01_ArtistsDataList.aspx" Text="Artists Data List (Part 1)" /></li>
                             <li><asp:HyperLink ID="SingleArtistLink" runat="server" NavigateUrl="~/Part02_SingleArtist.aspx" Text="Single Artists (Part 2)" /></li>
                             <li><asp:HyperLink ID="SingleWorkLink" runat="server" NavigateUrl="~/Part03_SingleWork.aspx" Text="Single Work (Part 3)" /></li>
                             <li><asp:HyperLink ID="SearchLink" runat="server" NavigateUrl="~/Part04_Search.aspx" Text="Search (Part 4)" /></li>
-                            <!--Dont need this code for now
                         <!--End of dropdown-menu-->
                         </ul>
                     <!--End of dropdown li-->
@@ -75,13 +72,12 @@
                     <!--Search box-->
                     <p id="nameBlock">Tyler Rop</p>
                     <div class="form-group">
-                        <asp:TextBox Text="Search Paintings" ID="RightSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
+                        <asp:TextBox placeholder="Search Paintings" ID="RightSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
                     <!--End of form-group-->
                     </div>
                     
-                    <!--ASP CHANGE-->
                     <!--Search button-->
-                    <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" />
+                    <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="NavBarSearch_ArtistPage" />
                     <!--End of search form-->
               </div>
 

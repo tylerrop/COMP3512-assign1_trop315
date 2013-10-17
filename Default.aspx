@@ -62,7 +62,6 @@
                             <li><asp:HyperLink ID="SingleArtistLink" runat="server" NavigateUrl="~/Part02_SingleArtist.aspx" Text="Single Artists (Part 2)" /></li>
                             <li><asp:HyperLink ID="SingleWorkLink" runat="server" NavigateUrl="~/Part03_SingleWork.aspx" Text="Single Work (Part 3)" /></li>
                             <li><asp:HyperLink ID="SearchLink" runat="server" NavigateUrl="~/Part04_Search.aspx" Text="Search (Part 4)" /></li>
-                            <!--Dont need this code for now
                         <!--End of dropdown-menu-->
                         </ul>
                     <!--End of dropdown li-->
@@ -75,12 +74,12 @@
                     <!--Search box-->
                     <p id="nameBlock">Tyler Rop</p>
                     <div class="form-group">
-                        <asp:TextBox Text="Search Paintings" ID="RightSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
+                        <asp:TextBox placeholder="Search Paintings" ID="RightSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
                     <!--End of form-group-->
                     </div>
                     
                     <!--Search button-->
-                    <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" />
+                    <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="NavBarSearch_DefaultPage"  />
                     <!--End of search form-->
               </div>
 

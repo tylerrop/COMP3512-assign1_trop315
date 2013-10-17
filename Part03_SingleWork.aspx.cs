@@ -11,4 +11,12 @@ public partial class Part03_SingleWork : System.Web.UI.Page
     {
 
     }
+
+    public void NavBarSearch_ArtworkPage(object sender, EventArgs e)
+    {
+        if (RightSearch.Text != null)
+        {
+            Response.Redirect("Part04_Search.aspx?title=" + RightSearch.Text);
+        }
+    }
 }

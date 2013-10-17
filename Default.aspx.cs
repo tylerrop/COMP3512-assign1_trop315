@@ -11,4 +11,12 @@ public partial class Default : System.Web.UI.Page
     {
 
     }
+
+    public void NavBarSearch_DefaultPage(object sender, EventArgs e)
+    {
+        if (RightSearch.Text != null)
+        {
+            Response.Redirect("Part04_Search.aspx?title=" + RightSearch.Text);
+        }
+    }
 }

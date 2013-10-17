@@ -75,13 +75,12 @@
                     <!--Search box-->
                     <p id="nameBlock">Tyler Rop</p>
                     <div class="form-group">
-                        <asp:TextBox Text="Search Paintings" ID="RightSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
+                        <asp:TextBox placeholder="Search Paintings" ID="RightSearch" TextMode="SingleLine" runat="server" CssClass="form-control" />
                     <!--End of form-group-->
                     </div>
                     
-                    <!--ASP CHANGE-->
                     <!--Search button-->
-                    <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" />
+                    <asp:Button ID="RightSubmit" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="NavBarSearch_DataListPage" />
                     <!--End of search form-->
               </div>
 
