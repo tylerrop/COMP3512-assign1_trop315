@@ -114,6 +114,15 @@ public partial class Part04_Search : System.Web.UI.Page
                 DataTable dt = new DataTable();
                 adapt.Fill(dt);
 
+
+
+                //highlight
+                HighlightSearchResults(dt);
+                
+
+
+
+
                 //repeater
                 searchRepeater.DataSource = dt;
                 searchRepeater.DataBind();
@@ -134,6 +143,28 @@ public partial class Part04_Search : System.Web.UI.Page
         }
     }
 
+    //highlight
+    public DataTable HighlightSearchResults(DataTable dt)
+    {
+        //checking for text from the Decriptiom
+        if (Request.QueryString["desc"] != null)
+        {
+            for (int c = 0; c < dt.Rows.Count; c++ )
+            {
+                string query = Request.QueryString["desc"];
+                string replace = dt.Rows[c]["Description"].ToString();
+
+                replace = replace.Replace(query, "<mark>" + query + "</mark>");
+                
+                //put it back in the data table
+                dt.Rows[c]["Description"] = replace;
+
+            }
+
+        }
+
+        return dt;
+    }
 
 
 }
