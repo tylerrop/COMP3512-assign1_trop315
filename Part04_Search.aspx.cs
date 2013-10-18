@@ -141,7 +141,7 @@ public partial class Part04_Search : System.Web.UI.Page
         //if thee is an exception then the page is directed to the error page
         catch(Exception ex)
         {
-            Response.Redirect("Error.aspx");
+            Response.Redirect("Part04_Search.aspx");
         }
     }
 

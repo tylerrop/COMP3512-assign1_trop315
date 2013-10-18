@@ -103,7 +103,7 @@
                 <asp:RadioButton ID="TitleFilterButton" 
                                  runat="server" 
                                  Value="1"  
-                                 Text=" Filter by Title" 
+                                 Text="&nbsp; Filter by Title" 
                                  OnCheckedChanged="RadioButton_CheckedChanged" 
                                  AutoPostBack="true" 
                                  GroupName="SearchRadios"/>
@@ -115,7 +115,7 @@
                 <asp:RadioButton ID="DescFilterButton" 
                                  runat="server" 
                                  Value="2" 
-                                 Text=" Filter by Description" 
+                                 Text="&nbsp; Filter by Description" 
                                  OnCheckedChanged="RadioButton_CheckedChanged" 
                                  AutoPostBack="true" 
                                  GroupName="SearchRadios"/> 
@@ -127,7 +127,7 @@
                 <asp:RadioButton ID="NoFilterButton" 
                                  runat="server" 
                                  Value="3" 
-                                 Text=" No Filter (show all artworks)"  
+                                 Text="&nbsp; No Filter (show all artworks)"  
                                  OnCheckedChanged="RadioButton_CheckedChanged" 
                                  AutoPostBack="true" 
                                  GroupName="SearchRadios" /> 
