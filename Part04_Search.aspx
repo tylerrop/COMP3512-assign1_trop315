@@ -54,15 +54,12 @@
                     
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
-                        <!--ASP CHANGE-->
-
 
                         <ul class="dropdown-menu">
                             <li><asp:HyperLink ID="ArtistsDataLink" runat="server" NavigateUrl="~/Part01_ArtistsDataList.aspx" Text="Artists Data List (Part 1)" /></li>
                             <li><asp:HyperLink ID="SingleArtistLink" runat="server" NavigateUrl="~/Part02_SingleArtist.aspx" Text="Single Artists (Part 2)" /></li>
                             <li><asp:HyperLink ID="SingleWorkLink" runat="server" NavigateUrl="~/Part03_SingleWork.aspx" Text="Single Work (Part 3)" /></li>
                             <li><asp:HyperLink ID="SearchLink" runat="server" NavigateUrl="~/Part04_Search.aspx" Text="Search (Part 4)" /></li>
-                            <!--Dont need this code for now
                         <!--End of dropdown-menu-->
                         </ul>
                     <!--End of dropdown li-->
@@ -99,20 +96,22 @@
     <div class="container">
         <div class="col-lg-12">
             <h1>Search Results</h1>
-        
+            
             <div class="highlight">
-              <!--GroupName="SearchRadios"-->
+                <!--GroupName="SearchRadios"-->
+                <!--Title filter radio-->
                 <asp:RadioButton ID="TitleFilterButton" 
                                  runat="server" 
                                  Value="1"  
                                  Text=" Filter by Title" 
                                  OnCheckedChanged="RadioButton_CheckedChanged" 
                                  AutoPostBack="true" 
-                                 GroupName="SearchRadios"/> 
+                                 GroupName="SearchRadios"/>
+                <!--Title search text box-->                 
                 <asp:TextBox ID="TitleSearch" TextMode="SingleLine" runat="server" CssClass="form-control" Visible="false" />
                 <br />
 
-
+                <!--Descrption filter radio-->
                 <asp:RadioButton ID="DescFilterButton" 
                                  runat="server" 
                                  Value="2" 
@@ -120,10 +119,11 @@
                                  OnCheckedChanged="RadioButton_CheckedChanged" 
                                  AutoPostBack="true" 
                                  GroupName="SearchRadios"/> 
+                <!--Descrption search text box-->
                 <asp:TextBox ID="DescSearch" TextMode="SingleLine" runat="server" CssClass="form-control" Visible="false" />
                 <br />
 
-
+                <!--No filter radio-->
                 <asp:RadioButton ID="NoFilterButton" 
                                  runat="server" 
                                  Value="3" 
@@ -133,13 +133,13 @@
                                  GroupName="SearchRadios" /> 
                 <br />
 
-
-
+                <!--Filter button-->
                 <asp:Button ID="FilterButton" runat="server" Text="Filter" CssClass="btn btn-primary" OnClick="FilterButtonPress" />
 
             <!--End of col-lg-12 highlight-->
             </div>
-                
+            
+            <!--Prints ou the search results based on the query and user input-->    
             <asp:Repeater runat="server" ID="searchRepeater">
                 <ItemTemplate>
                     <table>

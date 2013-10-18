@@ -54,8 +54,6 @@
                     
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
-                        <!--ASP CHANGE-->
-
 
                         <ul class="dropdown-menu">
                             <li><asp:HyperLink ID="ArtistsDataLink" runat="server" NavigateUrl="~/Part01_ArtistsDataList.aspx" Text="Artists Data List (Part 1)" /></li>
@@ -97,6 +95,7 @@
     <div class="jumbotron">
         <!--Hond the home page general text-->
         <div class="container">
+            <br />
         <h1>Welcome to Assignment #1</h1>
         <p>This is the first assignment for Tyler Rop for COMP 3512</p>
         <!--End of container-->

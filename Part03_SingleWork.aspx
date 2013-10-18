@@ -104,13 +104,8 @@
                     <!--Painting name-->
                     <h2><%# Eval("Title")%></h2>
                     
-                        <!--ARTIST NAME LINK HERE-->
+                        <!--Artist name link-->
                         <p>By: <a href="Part02_SingleArtist.aspx?ArtistID=<%# Eval("ArtistID") %>"><%# Eval("FirstName") %> <%# Eval("LastName") %></a></p>
-
-                       
-
-
-
 
                         <!--ArtWork Picture trigger modal -->
                         <a data-toggle="modal" href="#myModal">

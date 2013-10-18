@@ -198,7 +198,6 @@
                             <br />
 
                             <!--ArtWork buttons-->
-                            <!--View link-->
                             <a href="Part03_SingleWork.aspx?ArtWorkID=<%# Eval("ArtWorkID")%>"class="btn btn-primary btn-xs">
                                 <span class="glyphicon glyphicon-info-sign"></span> View
                             </a>
@@ -263,6 +262,7 @@
         </asp:SqlDataSource>
 
     </form>
+
 
    <!-- Bootstrap core JavaScript
    ================================================== -->

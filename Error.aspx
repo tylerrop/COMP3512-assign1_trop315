@@ -93,27 +93,18 @@
     <br />
     <div class="topSpacing"></div>
 
+    <!--Error display-->
     <div class="container">
         <div class="col-lg-10">
-            <h1>Error Encounered</h1>
-        
-
-        
+            <br/>
+            <h1>Error Encountered</h1>
+            <h3>Sorry, please try again.</h3>
+                
          <!--End of col-lg-10-->
         </div>
 
     <!--End of container-->
     </div>
-
-
-
-    <asp:SqlDataSource ID="sqlArtists" 
-                       runat="server" 
-                       ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                       SelectCommand="SELECT * FROM [Artists] ORDER BY LastName"
-                       ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
-    </asp:SqlDataSource>
-
 
     </form>
 
