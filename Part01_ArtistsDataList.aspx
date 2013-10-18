@@ -110,7 +110,6 @@
     </div>
 
 
-
     <asp:SqlDataSource ID="sqlArtists" 
                        runat="server" 
                        ConnectionString="<%$ ConnectionStrings:ConnectionString %>"

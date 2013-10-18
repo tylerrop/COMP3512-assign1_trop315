@@ -118,41 +118,27 @@
 
 
 
-                          <!-- Modal -->
+                          <!-- Modal for enlarged ArtWork image link -->
                           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                  <h4 class="modal-title"><%# Eval("Title") %> by <%# Eval("FirstName") %> <%# Eval("LastName") %></h4>
-                                </div>
-                                <div class="modal-body">
-                                   <img src="art-images/works/large/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" class="modalPic"/>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  
-                                </div>
-                              </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title"><%# Eval("Title") %> by <%# Eval("FirstName") %> <%# Eval("LastName") %></h4>
+                                    </div>
+                                
+                                    <div class="modal-body">
+                                        <img src="art-images/works/large/<%# Eval("ImageFileName")%>.jpg" alt="<%# Eval("Title")%>" class="modalPic"/>
+                                    </div>
+                                
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                             </div><!-- /.modal-dialog -->
                           </div><!-- /.modal -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      
                         <!--ArtWork Info-->
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
                             <!--artist description paragraph-->
@@ -161,18 +147,16 @@
                             <!--Painting Price-->
                             <p class="redPrice"><%# Eval("MSRP", "{0:C}")%></p>
 
-
-                            
                             <div class="btn-group">
                                  <!--Wish List link-->
-                            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
-                                <span class="glyphicon glyphicon-gift blueLinks"></span> Add to Wish List
-                            </asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
+                                    <span class="glyphicon glyphicon-gift blueLinks"></span> Add to Wish List
+                                </asp:HyperLink>
 
-                            <!--Shoping Cart link-->
-                            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
-                                <span class="glyphicon glyphicon-shopping-cart blueLinks"></span> Add to Shopping Cart
-                            </asp:HyperLink>
+                                <!--Shoping Cart link-->
+                                <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-default blueLinks" NavigateUrl="#">
+                                    <span class="glyphicon glyphicon-shopping-cart blueLinks"></span> Add to Shopping Cart
+                                </asp:HyperLink>
                             <!--End of btn-group-->
                             </div>
 
@@ -240,8 +224,7 @@
                         <!--End of col-xs-12 col-sm-6 col-md-8 col-lg-8-->                          
                         </div>  
 
-
-                       
+        
                         <!--Sales Panel-->
                         <div class="col-xs-12 
                                     col-sm-8 col-sm-offset-4 
@@ -266,16 +249,9 @@
                             </div>
                         <!--End of col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-2 col-lg-offset-0 noLeftPadding" style="padding-left: 15px;-->
                         </div>                  
-
-
-                                    
                                    
                 </ItemTemplate>              
             </asp:FormView>
-            
-
-           
-
 
         <!--End of row-->
         </div>
@@ -362,11 +338,6 @@
                     DefaultValue="394" />
              </SelectParameters>
          </asp:SqlDataSource>
-
-
-
-        
-
 
 
     </form>

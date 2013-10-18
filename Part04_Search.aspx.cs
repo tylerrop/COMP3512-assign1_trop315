@@ -95,7 +95,7 @@ public partial class Part04_Search : System.Web.UI.Page
 
             //queries based on which textbox the search is from and are checked to actually have a search parameter attached to them
             //title search query
-            if (Request.QueryString["title"] != null)
+            if (Request.QueryString["title"] != null && Request.QueryString["title"] != "")
             {
                 //@title is the parameter that comes in from the URL
                 sqlQuery += "SELECT Title, Description, ImageFileName, ArtWorkID FROM ArtWorks WHERE Title LIKE @title";

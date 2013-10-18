@@ -89,14 +89,10 @@
     <!--End of navbar navbar-inverse navbar-fixed-top-->
     </div>
 
-
     <!--Extra top spacing between navbar and content-->
     <br />
-
-
     <!--Container for Spacing-->
     <div class="topSpacing"></div>
-
 
     <div class="container">
         <!--changed from 10-->
@@ -212,8 +208,6 @@
                                 <span class="glyphicon glyphicon-shopping-cart"></span> Cart
                             </a>
 
-                        
-
                         <!--End of thumbnail-->
                         </div>
                     </ItemTemplate>
@@ -222,14 +216,9 @@
             </div>
 
 
-
-
-
-
         <!--End of row-->
         </div>
         
-
     <!--End of container-->
     </div> 
         
