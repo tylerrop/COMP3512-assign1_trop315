@@ -12,6 +12,7 @@ public partial class Part01_ArtistsDataList : System.Web.UI.Page
 
     }
 
+    //redirect for the navbar search box to make an auto title search request
     public void NavBarSearch_DataListPage(object sender, EventArgs e)
     {
         if (RightSearch.Text != null)

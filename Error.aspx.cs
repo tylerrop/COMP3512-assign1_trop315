@@ -12,6 +12,7 @@ public partial class Error : System.Web.UI.Page
 
     }
 
+    //redirect for the navbar search box to make an auto title search request
     public void NavBarSearch_ErrorPage(object sender, EventArgs e)
     {
         if (RightSearch.Text != null)
