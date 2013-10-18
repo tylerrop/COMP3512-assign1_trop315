@@ -226,10 +226,9 @@
         <asp:SqlDataSource ID="selectedArtist" runat="server" 
                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
                            SelectCommand="SELECT FirstName, LastName, ArtistID, Details, YearOfBirth, YearOfDeath, Nationality, ArtistLink 
-                                          FROM [Artists] WHERE ArtistID=@qweryID"
-                                                                                     
-
-                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+                                          FROM [Artists] WHERE ArtistID=@qweryID"                                                                       
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
+                           OnSelected="SingleArtistURL">
 
             <SelectParameters>
                 <asp:QuerystringParameter Name="qweryID" QueryStringField="ArtistID" DefaultValue="19"  />
