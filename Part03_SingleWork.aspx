@@ -271,12 +271,12 @@
                                           artist.FirstName, 
                                           artist.LastName FROM ArtWorks works, Artists artist WHERE works.ArtWorkID=?
                                          AND works.ArtistID=artist.ArtistID"
-                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>">
+                           ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
+                           OnSelected="SingleWorkURL">
             <SelectParameters>
                 <asp:QueryStringParameter
                     Name="art"
                     QueryStringField="ArtWorkID"
-                    Type="int32"
                     DefaultValue="394" />
              </SelectParameters>
         </asp:SqlDataSource>

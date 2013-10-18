@@ -20,4 +20,15 @@ public partial class Part03_SingleWork : System.Web.UI.Page
             Response.Redirect("Part04_Search.aspx?title=" + RightSearch.Text);
         }
     }
+
+    //redirects the user to the Error page if there is a problem with the value in the URL for the ArtWorkID
+    public void SingleWorkURL(object sender, SqlDataSourceStatusEventArgs e)
+    {
+        //seeing if the data source returns something
+        //if nothing is returns then the user is directed to the Error page
+        if (e.AffectedRows < 1)
+        {
+            Response.Redirect("Error.aspx");
+        }
+    }
 }
